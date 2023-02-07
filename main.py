@@ -51,3 +51,11 @@ def delete():
         return autherNames
     except Exception:
         print("Не корректный ввод !")
+
+
+# Поиск по списку
+def dataSearch():
+    print(autherNames)
+    name = input("Введите имя для поиска: ")
+    print(autherNames[name])
+    return dataSearch
