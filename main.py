@@ -100,3 +100,28 @@ def dataEdit():
         print(autherNames)
     except Exception:
         print("Не корректный ввод !")
+
+
+while True:
+    menu = ('Добавить в список', 'Удалить', 'Поиск по списку', 'Изменить список', 'Показать весь список авторов')
+    count = 0
+    print('----------------------------------------------------------------------------------------------------')
+    for i in menu:
+        count += 1
+        print(count, " - ", i)
+    print()
+    try:
+        user = int(input('Выберите  действие [1] [2] [3] [4] [5]: '))
+
+        if user == 1:
+            addition()
+        elif user == 2:
+            delete()
+        elif user == 3:
+            dataSearch()
+        elif user == 4:
+            dataEdit()
+        else:
+            break
+    except Exception:
+        print("Не корректный ввод !")
