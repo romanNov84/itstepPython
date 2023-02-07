@@ -59,3 +59,44 @@ def dataSearch():
     name = input("Введите имя для поиска: ")
     print(autherNames[name])
     return dataSearch
+
+
+def dataEdit():
+    print(autherNames)
+    print("Для изменения всех данных - 0, изменить на выбор - 1")
+    question = int(input("Выберите действие: "))
+    try:
+        if question == 0:
+            oldName = str(input("Введите старого автора: "))
+            newName = str(input("Введите нового автора: "))
+            title = str(input("Введите название книги: "))
+            genre = str(input("Введите жанр: "))
+            issue = int(input("Введите год выпуска: "))
+            pages = int(input("Введите количество страниц: "))
+            publishing = str(input("Введите издательство: "))
+            dict = {'title': title, 'genre': genre, 'issue': issue, 'pages': pages, 'publishing': publishing}
+            autherNames.update({newName: dict})
+            autherNames.pop(oldName)
+            autherNames.update({newName: dict})
+
+        if question == 1:
+            name = str(input('Введите автора для редактирования: '))
+            count = 0
+            for key in autherNames[name]:
+                count += 1
+                print(count, ' - ', key, ' - ', autherNames[name])
+
+            index = int(input('Какие данные отредактировать - [1] [2] [3] или [4]: '))
+            if index == 1 or index == 4:
+                value = int(input('Введите новое значение: '))
+            else:
+                value = input('Введите новое значение: ')
+            key = ''
+            count = 0
+            for ikey in autherNames[name]:
+                count += 1
+                if count == index: key = ikey
+            autherNames[name].update({key: value})
+        print(autherNames)
+    except Exception:
+        print("Не корректный ввод !")
