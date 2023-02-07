@@ -21,3 +21,33 @@ def addition():
         return autherNames
     except Exception:
         print("Не корректный ввод !")
+
+
+# Удаление данных из словаря
+def delete():
+    print("Удалить автора - 0, Удалить информацию о книге - 1")
+    question = int(input("Выберите действие: "))
+    try:
+        if question == 0:
+            name = str(input("Введите автора: "))
+            autherNames.pop(name)
+    except Exception:
+        print("Не корректный ввод !")
+    try:
+        if question == 1:                       # Удаление данных на выбор
+            name = str(input("Введите автора: "))
+            count = 0
+            for key in autherNames[name]:
+                count += 1
+                print(count, ' - ', key, ' - ', autherNames[name][key])
+            index = int(input("Введите значение для удаления [1] [2] [3] или [4]: "))
+            key = ''
+            count = 0
+            for i in autherNames[name]:
+                count += 1
+                if count == index: key = i
+            autherNames[name].pop(key)
+        print(autherNames)
+        return autherNames
+    except Exception:
+        print("Не корректный ввод !")
